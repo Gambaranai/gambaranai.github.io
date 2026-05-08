@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Gambaranai's HP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="lang-toggle-container">
+        <button id="langToggle" class="lang-toggle-btn">JP</button>
+    </div>
+    <main class="wrap">
+        <section class="hero privacy-panel">
+            <!-- English Version -->
+            <div id="content-en" class="lang-content active">
+                <h1>Privacy Policy</h1>
+                
+                <h2>About Ads</h2>
+                <p>This site uses third-party advertising services (Google AdSense) to serve ads.</p>
+                <p>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.</p>
+                <p>Users may opt out of personalized advertising by visiting <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer">Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.</p>
+                
+                <h2>Disclaimer</h2>
+                <p>While every effort is made to ensure the accuracy of the information presented on this site, no guarantee is provided regarding its accuracy or safety. Please note that we are not responsible for any damages or losses caused by the content of this site.</p>
+                
+                <div class="back-link">
+                    <a href="index.html">← Back to Top</a>
+                </div>
+            </div>
+
+            <!-- Japanese Version -->
+            <div id="content-jp" class="lang-content" style="display: none;">
+                <h1>プライバシーポリシー</h1>
+                
+                <h2>広告の配信について</h2>
+                <p>当サイトでは、第三者配信事業者である「Google AdSense」を利用し、広告を掲載しています。</p>
+                <p>Googleなどの広告配信事業者は、Cookie（クッキー）を使用して、ユーザーが当サイトや他のウェブサイトに過去にアクセスした際の情報に基づいて広告を配信します。</p>
+                <p>ユーザーは、Googleアカウントの<a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer">広告設定</a>で、パーソナライズ広告を無効にできます。また、<a href="https://www.aboutads.info/choices" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>にアクセスすれば、第三者配信事業者がパーソナライズ広告の掲載で使用する Cookie を無効にできます。</p>
+                
+                <h2>免責事項</h2>
+                <p>当サイトのコンテンツ・情報について、できる限り正確な情報を掲載するよう努めておりますが、正確性や安全性を保証するものではありません。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</p>
+                
+                <div class="back-link">
+                    <a href="index.html">← トップページへ戻る</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const btn = document.getElementById('langToggle');
+        const contentEn = document.getElementById('content-en');
+        const contentJp = document.getElementById('content-jp');
+
+        // Check local storage or default to 'en'
+        let currentLang = localStorage.getItem('prefLang') || 'en';
+
+        function updateLang() {
+            if (currentLang === 'en') {
+                contentEn.style.display = 'block';
+                contentJp.style.display = 'none';
+                btn.textContent = 'JP';
+                document.documentElement.lang = 'en';
+            } else {
+                contentEn.style.display = 'none';
+                contentJp.style.display = 'block';
+                btn.textContent = 'EN';
+                document.documentElement.lang = 'ja';
+            }
+        }
+
+        btn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'jp' : 'en';
+            localStorage.setItem('prefLang', currentLang);
+            updateLang();
+        });
+
+        updateLang();
+    </script>
+</body>
+</html>
