@@ -1,18 +1,82 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <title>Gambaranai's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambaranai's HP</title>
+    <link rel="stylesheet" href="style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <h1>Welcome to My Project Space</h1>
-    <p>自作アプリや研究内容を公開しています。</p>
-    
-    <h2>Projects</h2>
-    <ul>
-        <li><a href="https://gambaranai.github.io/Venus-Calendar/">Venus Calendar (Moon Phase Dashboard)</a></li>
-    </ul>
+    <main class="wrap">
+        <section class="hero">
+            <h1>Gambaranai's HP</h1>
+            <p class="lead">The portal site of Gambaranai's works and internet.</p>
+
+            <section class="panel">
+                <h2>LINK</h2>
+                <div class="card-grid">
+                    <a class="link-card card-twitter" href="https://x.com/_Gambaranai_2" target="_blank"
+                        rel="noopener noreferrer">
+                        <strong>Twitter / X</strong>
+                        <span>Easiest way to contact me</span>
+                    </a>
+
+                    <a class="link-card card-github" href="https://github.com/gambaranai" target="_blank"
+                        rel="noopener noreferrer">
+                        <strong>GitHub</strong>
+                        <span>Code and development logs</span>
+                    </a>
+
+                    <a class="link-card card-blog" href="https://gambaranai-2.themedia.jp/" target="_blank"
+                        rel="noopener noreferrer">
+                        <strong>Blog</strong>
+                        <span>Articles and activity records</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="panel apps-panel">
+                <h2>App</h2>
+                <div class="card-grid">
+                    <a class="link-card" href="https://gambaranai.github.io/Venus-Calendar/" target="_blank"
+                        rel="noopener noreferrer">
+                        <strong>Venus Phase Calendar</strong>
+                        <span>English ver. is available.</span>
+                    </a>
+                </div>
+            </section>
+
+            <footer class="contact-footer">
+                <button class="email-copy-btn" id="emailCopyBtn" data-email="studio.gambaranai@gmail.com">
+                    <span class="email-text">studio.gambaranai [at] gmail.com</span>
+                    <span class="copy-feedback" id="copyFeedback">Copied!</span>
+                </button>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        const emailBtn = document.getElementById('emailCopyBtn');
+        const feedback = document.getElementById('copyFeedback');
+
+        emailBtn.addEventListener('click', () => {
+            const emailToCopy = emailBtn.getAttribute('data-email');
+            navigator.clipboard.writeText(emailToCopy).then(() => {
+                emailBtn.classList.add('copied');
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    emailBtn.classList.remove('copied');
+                    feedback.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    </script>
 </body>
+
 </html>
