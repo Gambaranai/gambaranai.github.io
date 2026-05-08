@@ -1,0 +1,223 @@
+:root {
+    --bg-deep: #09131d;
+    --bg-mid: #12263a;
+    --bg-light: #1b3d5a;
+    --text-main: #f3f7fa;
+    --text-sub: #c2d4e2;
+    --accent: #ffd166;
+    --card: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text-main);
+    font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(255, 209, 102, 0.22), transparent 38%),
+        radial-gradient(circle at 80% 80%, rgba(85, 187, 255, 0.2), transparent 36%),
+        linear-gradient(140deg, var(--bg-deep), var(--bg-mid) 56%, var(--bg-light));
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.wrap {
+    width: min(960px, 100%);
+    backdrop-filter: blur(6px);
+}
+
+.hero {
+    border: 1px solid var(--card-border);
+    background: var(--card);
+    border-radius: 20px;
+    padding: clamp(24px, 5vw, 48px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    animation: rise 800ms ease both;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2.1rem, 8vw, 4.2rem);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: #cbd5e1;
+}
+
+.lead {
+    margin: 14px 0 30px;
+    color: var(--text-sub);
+    font-size: clamp(1rem, 2.6vw, 1.2rem);
+}
+
+.panel {
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 18px;
+    background: rgba(9, 19, 29, 0.35);
+}
+
+.panel + .panel {
+    margin-top: 18px;
+}
+
+h2 {
+    margin: 0 0 12px;
+    font-size: 1.1rem;
+    letter-spacing: 0.03em;
+    color: #b0c4de;
+}
+
+.apps-panel h2 {
+    color: #ff8a80;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+}
+
+.apps-panel .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.link-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.link-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.link-card strong {
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.link-card span {
+    color: var(--text-sub);
+    font-size: 0.92rem;
+}
+
+.card-twitter {
+    border-color: rgba(50, 50, 50, 0.9);
+    background: linear-gradient(145deg, rgba(144, 202, 249, 0.75), rgba(100, 181, 246, 0.45));
+}
+
+.card-twitter strong{
+    color: #1b3a56;
+}
+.card-twitter span {
+    color: #1a1a1a;
+}
+
+.card-github {
+    border-color: rgba(50, 50, 50, 0.9);
+    background: linear-gradient(145deg, rgba(210, 210, 210, 0.75), rgba(135, 135, 135, 0.45));
+}
+
+.card-github strong,
+.card-github span {
+    color: #1a1a1a;
+}
+
+.card-blog {
+    border-color: rgba(50, 50, 50, 0.9);
+    background: linear-gradient(145deg, rgba(165, 214, 167, 0.75), rgba(129, 199, 132, 0.45));
+}
+
+.card-blog strong
+{
+    color: #1d5f08;
+}
+.card-blog span {
+    color: #1a1a1a;
+}
+
+.card-app {
+    border-color: rgba(50, 50, 50, 0.9);
+    background: linear-gradient(145deg, rgba(210, 210, 210, 0.75), rgba(135, 135, 135, 0.45));
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-footer {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.email-copy-btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    border-radius: 30px;
+    padding: 10px 24px;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 200ms ease;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 260px;
+}
+
+.email-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: #b0c4de;
+    color: var(--text-main);
+    transform: translateY(-2px);
+}
+
+.email-text {
+    transition: opacity 200ms ease;
+}
+
+.copy-feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: #81c784;
+    font-weight: bold;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    letter-spacing: 0.05em;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+}
+
+.email-copy-btn.copied .email-text {
+    opacity: 0;
+}
