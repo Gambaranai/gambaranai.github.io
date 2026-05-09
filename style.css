@@ -50,9 +50,76 @@ h1 {
 }
 
 .lead {
-    margin: 14px 0 30px;
+    margin: 14px 0 24px;
+    /*bioの上の隙間調整*/
     color: var(--text-sub);
     font-size: clamp(1rem, 2.6vw, 1.2rem);
+}
+
+.bio-details {
+    margin: 0 0 20;
+    /*bioの下の隙間調整*/
+    width: 100%;
+}
+
+.bio-details summary {
+    padding: 6px 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-sub);
+    display: inline-flex;
+    align-items: center;
+    list-style: none;
+    /* Hide default arrow */
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.bio-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.bio-details summary:hover {
+    color: var(--text-main);
+}
+
+.bio-icon {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+    color: var(--text-sub);
+    margin-left: 8px;
+}
+
+.bio-details[open] .bio-icon {
+    transform: rotate(180deg);
+}
+
+.bio-details[open] summary {
+    color: var(--text-main);
+}
+
+.bio-content {
+    padding: 8px 0 16px;
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    line-height: 1.6;
+    animation: fadeInBio 0.4s ease;
+}
+
+.bio-content p {
+    margin: 0;
+}
+
+@keyframes fadeInBio {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .panel {
@@ -62,7 +129,7 @@ h1 {
     background: rgba(9, 19, 29, 0.35);
 }
 
-.panel + .panel {
+.panel+.panel {
     margin-top: 18px;
 }
 
@@ -120,9 +187,10 @@ h2 {
     background: linear-gradient(145deg, rgba(144, 202, 249, 0.75), rgba(100, 181, 246, 0.45));
 }
 
-.card-twitter strong{
+.card-twitter strong {
     color: #1b3a56;
 }
+
 .card-twitter span {
     color: #1a1a1a;
 }
@@ -142,10 +210,10 @@ h2 {
     background: linear-gradient(145deg, rgba(165, 214, 167, 0.75), rgba(129, 199, 132, 0.45));
 }
 
-.card-blog strong
-{
+.card-blog strong {
     color: #1d5f08;
 }
+
 .card-blog span {
     color: #1a1a1a;
 }
